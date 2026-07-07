@@ -1,4 +1,4 @@
-package org.example;
+package lld.tictactoe.enums;
 
 public enum SymbolType {
     O,

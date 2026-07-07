@@ -1,4 +1,6 @@
-package org.example;
+package lld.tictactoe.model;
+
+import lld.tictactoe.enums.SymbolType;
 
 public abstract class Symbol {
     public SymbolType symbolType;
