@@ -29,6 +29,10 @@ public class Board {
         return row >= 0 && row < size && col >= 0 && col < size;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     void placeSymbol(Move move) {
         if (!isValidPosition(move.getRow(), move.getCol())) {
             throw new InvalidPositionException("Please enter valid position!");
