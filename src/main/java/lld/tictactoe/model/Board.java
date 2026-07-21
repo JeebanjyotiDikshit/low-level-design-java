@@ -1,9 +1,6 @@
 package lld.tictactoe.model;
 
 import lld.tictactoe.enums.SymbolType;
-import lld.tictactoe.exception.CellAlreadyOccupiedException;
-import lld.tictactoe.exception.InvalidBoardSizeException;
-import lld.tictactoe.exception.InvalidPositionException;
 
 public class Board {
 
@@ -13,7 +10,7 @@ public class Board {
 
     Board(int size) {
         if (size <= 0) {
-            throw new InvalidBoardSizeException("Please enter valid positive size!");
+            throw new IllegalArgumentException("Please enter valid positive size!");
         }
         this.size = size;
         cells = new Cell[size][size];
@@ -35,7 +32,7 @@ public class Board {
 
     void placeSymbol(Move move) {
         if (!isValidPosition(move.getRow(), move.getCol())) {
-            throw new InvalidPositionException("Please enter valid position!");
+            throw new IllegalArgumentException("Please enter valid position!");
         }
         Cell cell = cells[move.getRow()][move.getCol()];
         cell.placeSymbol(move.getPlayer().getSymbolType());
@@ -48,7 +45,7 @@ public class Board {
 
     public SymbolType getSymbolType(int row, int col) {
         if (!isValidPosition(row, col)) {
-            throw new InvalidPositionException("Invalid position!");
+            throw new IllegalArgumentException("Invalid position!");
         }
         Cell cell = cells[row][col];
         return cell.getSymbolType();
