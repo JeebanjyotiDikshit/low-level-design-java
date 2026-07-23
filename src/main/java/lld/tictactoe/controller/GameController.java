@@ -59,7 +59,6 @@ public class GameController {
             System.out.println("Game is Draw!!!");
         }
 
-        System.out.println("Game Over!!!");
     }
 
     private void printBoardState() {
