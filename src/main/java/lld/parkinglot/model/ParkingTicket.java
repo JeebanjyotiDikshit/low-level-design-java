@@ -1,6 +1,7 @@
 package lld.parkinglot.model;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class ParkingTicket {
 
@@ -24,5 +25,33 @@ public class ParkingTicket {
 
     public LocalDateTime getEntryTime() {
         return entryTime;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof ParkingTicket)) {
+            return false;
+        }
+
+        ParkingTicket other = (ParkingTicket) obj;
+
+        return this.parkingSpot.getParkingSpotNumber()
+                .equals(other.parkingSpot.getParkingSpotNumber())
+                && this.vehicle.getVehicleNumber()
+                .equals(other.vehicle.getVehicleNumber())
+                && this.entryTime.equals(other.entryTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                parkingSpot.getParkingSpotNumber(),
+                vehicle.getVehicleNumber(),
+                entryTime
+        );
     }
 }
